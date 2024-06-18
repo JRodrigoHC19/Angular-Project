@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Product } from "../../../../@models/product.model";
+
 
 @Component({
   selector: 'app-product-item',
@@ -9,9 +10,7 @@ import { Product } from "../../../../@models/product.model";
 })
 export class ProductItemComponent {
   @Input() product?: Product;
-  @Output() backPageClicked = new EventEmitter();
+  @Output() bpEvent = new EventEmitter();
 
-  backPage() {
-    this.backPageClicked.emit();
-  }
+  backPage() { this.bpEvent.emit() }
 }

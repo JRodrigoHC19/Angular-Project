@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class TabbarInfoComponent {
   @Input() hiddenChilden: boolean[] = [true, true, true];
-  @Output() selectedUserId = new EventEmitter<number>();
+  @Output() suiEvent = new EventEmitter<number>();
 
   hiddenConfigInside: boolean = false;
   hiddenAboutMe: boolean = true;
@@ -29,7 +29,5 @@ export class TabbarInfoComponent {
     this.hiddenTC = true
    }
 
-   getUserId(id: number) {
-    this.selectedUserId.emit(id);
-   }
+   getUserId(id: number) { this.suiEvent.emit(id) }
 }

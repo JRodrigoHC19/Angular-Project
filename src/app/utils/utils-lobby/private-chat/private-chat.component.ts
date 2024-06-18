@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Message } from 'src/@models/message.model';
-import { User } from 'src/@models/user.model';
+
 import { LoginService } from 'src/app/services/auth/login.service';
 import { DatabaseService } from 'src/app/services/database/database.service';
 import { ChatService } from 'src/app/services/websocket/chat.service';
+
+import { Message } from 'src/@models/message.model';
+import { User } from 'src/@models/user.model';
 
 
 @Component({
@@ -36,19 +38,17 @@ export class PrivateChatComponent implements OnInit {
     })
    }
 
-  isLoggedIn(): boolean {
-    return this.loginService.isLoggedIn();
-  }
-
-  ngOnInit(): void {
-    console.log("Capturando chat del usuario...");
+   ngOnInit(): void {
     if (this.isLoggedIn()) {
       this.loginService.UserRequest().subscribe({
-        next: (data: User) => {
-          this.user = data;
-        }
-      })
+        next: (data: User) => this.user = data
+      });
     }
+  }
+
+
+  isLoggedIn(): boolean {
+    return this.loginService.isLoggedIn();
   }
 
   sendMsg(){
@@ -80,4 +80,5 @@ export class PrivateChatComponent implements OnInit {
 
     this.reply = "";
   }
+
 }

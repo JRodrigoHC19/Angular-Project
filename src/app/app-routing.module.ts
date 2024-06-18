@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ProductsComponent } from "./products/products.component";
-import { HomeComponent } from './home/home.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
 import { LoginGuard } from './auth/login/login.custom.guard';
 
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+import { LobbyComponent } from './home/lobby/lobby.component';
+import { ProductsComponent } from "./home/products/products.component";
+
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: LobbyComponent },
 
   { path: 'login',component: LoginComponent },
   { path: 'register',component: RegisterComponent },

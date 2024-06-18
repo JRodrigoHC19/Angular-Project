@@ -16,10 +16,8 @@ const product_void = {
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent {
-  @Input() products!: Product[];
-  @Output() productSelected = new EventEmitter();
+  @Input() products: Product[] = [];
+  @Output() spEvent = new EventEmitter<number>();
 
-  selectProduct(id: Number) {
-    this.productSelected.emit(id);
-  }
+  selectProduct(id: number) { this.spEvent.emit(id) }
 }

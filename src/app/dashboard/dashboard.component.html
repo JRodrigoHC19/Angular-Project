@@ -2,9 +2,11 @@
   <div style="width: 7%; background-color:aquamarine;">
     <app-tabbar (nameComponent)="enableComponent($event)"></app-tabbar>
   </div>
+
   <div  style="width: 38%; background-color: gray;">
-    <app-tabbar-info [hiddenChilden]="hiddenComponent" (selectedUserId)="showUserChat($event)"></app-tabbar-info>
+    <app-tabbar-info [hiddenChilden]="hiddenComponent" (suiEvent)="showUserChat($event)"></app-tabbar-info>
   </div>
+
   <div  style="width: 65%; border-top: solid black 1px;">
       <app-navbar-chat ></app-navbar-chat>
       <hr>

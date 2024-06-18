@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import * as QRCode from 'qrcode';
 
-const URL_BASE = "https://api.whatsapp.com/send/?phone=%2B14155238886&text=join+broken-skill&type=phone_number&app_absent=0";
+const URL_WHATSAPP = "https://api.whatsapp.com/send/?phone=%2B14155238886&text=join+broken-skill&type=phone_number&app_absent=0";
 
 @Component({
   selector: 'app-qr-code',
@@ -13,9 +13,7 @@ export class QrCodeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    this.generateQRCode(URL_BASE);
-  }
+  ngOnInit(): void { this.generateQRCode(URL_WHATSAPP) }
 
   generateQRCode(text: string): void {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement;

@@ -21,65 +21,57 @@ const passwordMatchValidator: ValidatorFn = (control: AbstractControl): Validati
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
   registerError: string = "";
 
   RegisterForm = this.formBuilder.group({
     name: [
       "",
-      [
-        Validators.required
-      ]
+      [ Validators.required ]
     ],
     email: [
-      "username.1@gmail.com",
-      [
-        Validators.required,
-        Validators.email
-      ]
+      "",
+      [ Validators.required, Validators.email ]
     ],
     password: [
-      "username123",
-      [
-        Validators.required
-      ]
+      "",
+      [ Validators.required ]
     ],
     password2: [
-      "username123",
-      [
-        Validators.required,
-      ]
+      "",
+      [ Validators.required ]
     ],
     tc: [
       false,
-      [
-        Validators.requiredTrue
-      ]
+      [ Validators.requiredTrue ]
     ]
   });
 
 
-  constructor( private formBuilder: FormBuilder, private loginService: LoginService, private router: Router) { }
-  ngOnInit(): void { }
+  constructor(
+    private loginService: LoginService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) { }
 
 
   RegisterPress(){
     if (this.RegisterForm.valid){
-      this.loginService.createAccount(this.RegisterForm.value as NewCredentials).subscribe({
-        // next: (answer) =>{ console.log(answer) },
-        error: (errData: string) =>{
-          console.log(errData);
-          this.registerError = errData;
-        },
-        complete: () =>{
-          console.log("Creacion de Cuenta Completada!");
-          this.router.navigateByUrl('lobby');
-          this.RegisterForm.reset();
-        }
-      });
+      this.loginService.createAccount(this.RegisterForm.value as NewCredentials)
+        .subscribe({
+          // next: (res) =>{ console.log(res) },
+          error: (errData: string) => {
+            this.registerError = errData;
+          },
+          complete: () => {
+            console.log("Creacion de Cuenta Completada!");
+            this.router.navigateByUrl('lobby');
+            this.RegisterForm.reset();
+          }
+        });
     } else {
       this.RegisterForm.markAllAsTouched();
-      alert("Usuario No Valido.")
+      alert("Credenciales no Validas.");
     }
   }
 }

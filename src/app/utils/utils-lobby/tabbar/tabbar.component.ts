@@ -1,28 +1,20 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
-import { User } from 'src/@models/user.model';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
 import { LoginService } from 'src/app/services/auth/login.service';
+
+import { User } from 'src/@models/user.model';
+
 
 @Component({
   selector: 'app-tabbar',
   templateUrl: './tabbar.component.html',
   styleUrls: ['./tabbar.component.scss']
 })
-export class TabbarComponent implements OnInit, OnDestroy {
+export class TabbarComponent implements OnInit {
   @Output() nameComponent = new EventEmitter<string>();
   isAdmin: boolean = false;
 
-  constructor(private loginService: LoginService, private router: Router) { }
-
-  isLoggedIn(): boolean {
-    return this.loginService.isLoggedIn();
-  }
-
-  enableComponent(child :string) {
-    this.nameComponent.emit(child);
-  }
-
-  logOut() { this.loginService.logout() }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
     if (this.isLoggedIn()) {
@@ -34,6 +26,15 @@ export class TabbarComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy(): void { }
+
+  isLoggedIn(): boolean {
+    return this.loginService.isLoggedIn();
+  }
+
+  enableComponent(child :string) {
+    this.nameComponent.emit(child);
+  }
+
+  logOut() { this.loginService.logout() }
 
 }

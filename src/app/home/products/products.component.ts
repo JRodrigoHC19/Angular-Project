@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Product } from "../../@models/product.model";
+import { Product } from "../../../@models/product.model";
 
 import { DatabaseService } from 'src/app/services/database/database.service';
+
 
 @Component({
   selector: 'app-products',
@@ -10,28 +11,24 @@ import { DatabaseService } from 'src/app/services/database/database.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  products!: Product[];
+  products: Product[] = [];
   product?: Product;
-  isDisabledPage: boolean = true;
+  hiddenPage = true;
 
-  constructor (private databaseService: DatabaseService) { }
+  constructor (
+    private databaseService: DatabaseService
+  ) { }
 
   ngOnInit(): void {
-    console.log("Products initialized!");
-
     this.databaseService.getProduct_All().subscribe({
-      next: (data: Product[]) => {
-        this.products = data;
-      }
+      next: (data) => { this.products = data }
     })
   }
 
   selectProduct(id: number){
     this.product = this.products[id];
-    this.isDisabledPage= false;
+    this.hiddenPage = false;
   }
 
-  backPage(){
-    this.isDisabledPage = true;
-  }
+  backPage(){ this.hiddenPage = true }
 }

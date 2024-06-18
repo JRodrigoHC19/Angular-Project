@@ -1,0 +1,15 @@
+<app-header></app-header>
+
+<app-product-list
+  *ngIf="hiddenPage"
+  (spEvent)="selectProduct($event)"
+  [products]="products"
+></app-product-list>
+
+<app-product-item
+  *ngIf="!hiddenPage"
+  (bpEvent)="backPage()"
+  [product]="product"
+></app-product-item>
+
+<app-footer></app-footer>

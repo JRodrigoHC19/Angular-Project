@@ -1,9 +1,7 @@
 export interface LoginResponse {
- token: Tokens,
- msg: string,
-}
-
-interface Tokens {
+ token: {
   refresh: string,
   access: string
+},
+ msg: string
 }
