@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,12 +6,4 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements OnInit, OnDestroy {
-  title = 'My-Guide-Plant';
-
-  constructor() { }
-
-  ngOnInit(): void { }
-
-  ngOnDestroy(): void { }
-}
+export class AppComponent { title = 'My-Guide-Plant' }
