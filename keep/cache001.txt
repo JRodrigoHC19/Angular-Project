@@ -1,0 +1,131 @@
+const userVoid = {
+    uid:"",
+    name: "",
+    role:"",
+    "chat_uid":"",
+    credentials: {
+      "email": "",
+      "password": ""
+    }
+  };
+
+
+
+
+
+y como lo uso aqui?
+
+  login(credentials: Credentials):Observable<User>{
+    return firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password).then(
+      (res) =>{
+        firebase.auth().currentUser?.getIdToken().then(
+          (token) => {
+            console.log(this.currentToken);
+            this.currentUserLoginOn.next(true);
+            this.currentUserData.next(userVoid);
+            return userVoid;
+          }
+        ).catch(
+          (err) => {
+            console.log("Ocurrio un Error al intentar obtener el IdToken");
+            catchError(this.handleError);
+          }
+        );
+      }
+    ).catch(
+      (err) => {
+        console.log("Ocurrio un Error al Intentar Logearte.");
+        catchError(this.handleError);
+      }
+    );
+  }
+
+  private handleError(err: HttpErrorResponse){
+    if(err.status === 0){
+      console.error('Se ha producido un error');
+    } else {
+      console.error('El Backend ha retornado en codigo de estado:', err.status);
+    }
+    return throwError(() => Error('Algo ha fallado. Please, intente nuevamente.'));
+  }
+}
+
+
+
+
+
+firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password).then(
+(res) =>{
+  firebase.auth().currentUser?.getIdToken().then(
+    (token) => {
+      this.currentToken = token;
+      console.log(this.currentToken);
+    }
+  );
+
+  this.currentUserLoginOn.next(true);
+  this.currentUserData.next({
+    uid: "",
+    name: "",
+    role: "client",
+    chat_uid: "",
+    credentials: {
+      email: firebase.auth().currentUser?.email || "lol@gmail.com",
+      password:""
+    }
+  });
+
+}
+).catch(
+(err) => {
+  console.log("Ha ocurrido un error durante el logeo");
+  catchError(this.handleError);
+  return userVoid;
+}
+);
+
+
+
+
+firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password).then(
+(res) =>{
+  firebase.auth().currentUser?.getIdToken().then(
+    (token) => {
+      this.currentToken = token;
+      console.log(this.currentToken);
+    }
+  );
+
+  this.currentUserLoginOn.next(true);
+  this.currentUserData.next({
+    uid: "",
+    name: "",
+    role: "client",
+    chat_uid: "",
+    credentials: {
+      email: firebase.auth().currentUser?.email || "lol@gmail.com",
+      password:""
+    }
+  });
+
+}
+).catch(
+(err) => {
+  console.log("Ha ocurrido un error durante el logeo");
+  catchError(this.handleError);
+  return userVoid;
+}
+);
+
+
+
+// En Un Observable ~ login(...)
+let data = this.http.get<User[]>("../../../assets/users.json").pipe(
+tap( userData => {
+  this.currentUserLoginOn.next(true);
+  this.currentUserData.next(userData[0]);
+}),
+catchError(this.handleError)
+);
+console.table(data);
+return data;

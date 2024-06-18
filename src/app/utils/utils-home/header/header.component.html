@@ -1,0 +1,12 @@
+<div style="background-color: aqua; font-size: 20px; display: flex;">
+  <a routerLink="">Home</a>
+  <span style="width: 20px;"></span>
+  <a routerLink="/products">Products</a>
+  <span style="width: 20px;"></span>
+
+  <a *ngIf="isLoggedIn()" routerLink="/lobby">Lobby</a>
+  <span *ngIf="isLoggedIn()" style="width: 20px;"></span>
+  <a *ngIf="!isLoggedIn()" routerLink="/login">Login</a>
+  <a *ngIf="isLoggedIn()" routerLink="" (click)="logOut()">LogOut</a>
+  <p *ngIf="isLoggedIn()">{{userMain?.name}}</p>
+</div>

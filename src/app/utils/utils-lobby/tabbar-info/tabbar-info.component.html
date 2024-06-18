@@ -1,0 +1,24 @@
+<div [hidden]="hiddenChilden[0]">
+  <div [hidden]="hiddenConfigInside">
+    <h2>Configuracion</h2>
+    <button (click)="enable_AboutMe()">Acerca de</button>
+    <br>
+    <button (click)="enable_TC()">Terminos y Condiciones</button>
+  </div>
+
+  <!-- CONTAINER ~ ABOUT ME -->
+  <div [hidden]="hiddenAboutMe">
+    <button (click)="backPage()">regresar</button>
+    <p>Acerca de ...</p>
+  </div>
+
+  <!-- CONTAINER ~ TC -->
+  <div [hidden]="hiddenTC">
+    <button (click)="backPage()">regresar</button>
+    <p>Terminos y Condiciones ...</p>
+  </div>
+</div>
+
+<app-qr-code [hidden]="hiddenChilden[1]"></app-qr-code>
+
+<app-chat-list [hidden]="hiddenChilden[2]" (selectedUserId)="getUserId($event)"></app-chat-list>

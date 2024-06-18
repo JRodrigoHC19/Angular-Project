@@ -1,0 +1,16 @@
+<div>
+  <ul style="margin: 0px 25px; list-style-type: none; padding: 0; font-size: 20px;">
+    <li *ngFor="let msg of chat">
+      <p *ngIf="msg.type" style="text-align: right;">
+        {{msg.message}} :<strong>admin</strong>
+      </p>
+      <p *ngIf="!msg.type">
+        <strong>user</strong>: {{msg.message}}
+      </p>
+
+    </li>
+  </ul>
+
+  <input type="text" id="reply" name="reply" style="font-size: 20px;" [(ngModel)]="reply">
+  <button style="font-size: 20px;" (click)="sendMsg()">Send</button>
+</div>

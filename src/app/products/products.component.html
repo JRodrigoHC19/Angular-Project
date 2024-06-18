@@ -1,0 +1,12 @@
+<app-header></app-header>
+<h1>Welcomo Products</h1>
+<app-product-list
+  [products]="products"
+  (productSelected)="selectProduct($event)"
+  [hidden]="!isDisabledPage"
+></app-product-list>
+<app-product-item
+  [product]="product"
+  (backPageClicked)="backPage()"
+  [hidden]="isDisabledPage"
+></app-product-item>

@@ -1,0 +1,21 @@
+  <form  [formGroup]="RegisterForm" (ngSubmit)="RegisterPress()">
+  <p *ngIf="registerError != ''">{{registerError}}</p>
+  <fieldset>
+    <label for="name-login">Full Name</label>
+    <input formControlName="name" type="text" id="name-login">
+    <br>
+    <label for="email-register">Email</label>
+    <input formControlName="email" type="email" id="emaul-register">
+    <br>
+    <label for="password-register">Password</label>
+    <input formControlName="password" type="password" id="password-register">
+    <br>
+    <label for="password2-register">Password Again</label>
+    <input formControlName="password2" type="password" id="password2-register">
+    <br>
+    <label for="tc-register">Terminos y condiciones</label>
+    <input formControlName="tc" type="checkbox" id="tc-register" required>
+  </fieldset>
+
+  <button type="submit">Create Account</button>
+</form>

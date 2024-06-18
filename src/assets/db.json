@@ -1,0 +1,23 @@
+[
+  {
+    "id": 0,
+    "title": "Laptop ASUS",
+    "description": "Dispositivo Inteligente ultra pontente.",
+    "features": ["Placa Moderna", "Tajeta de Video 2024", "Ram 16GB"],
+    "price": 24.99
+  },
+  {
+    "id": 1,
+    "title": "Laptop Lenovo",
+    "description": "Dispositivo Inteligente poco veloz.",
+    "features": ["Placa Moderna", "Tajeta de Video 2023", "Ram 32GB"],
+    "price": 45.99
+  },
+  {
+    "id": 2,
+    "title": "Laptop HP",
+    "description": "Dispositivo Inteligente bastante portable.",
+    "features": ["Placas Antigua", "Tajeta de Video 2020", "Ram 8GB"],
+    "price": 55.99
+  }
+]
