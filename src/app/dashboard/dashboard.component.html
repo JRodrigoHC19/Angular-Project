@@ -7,10 +7,12 @@
     <app-tabbar-info [hiddenChilden]="hiddenComponent" (suiEvent)="showUserChat($event)"></app-tabbar-info>
   </div>
 
-  <div style="width: 65%; border-top: solid black 1px;" *ngIf="!IamAdmin">
+  <div style="width: 65%; border-top: solid black 1px;">
+    <div [hidden]="IamAdmin">
       <app-navbar-chat [user]="client"></app-navbar-chat>
       <hr>
       <app-private-chat [chat]="chat" [UserId]="client.id"></app-private-chat>
+    </div>
   </div>
 </div>
 
