@@ -4,8 +4,13 @@ import { Injectable } from '@angular/core';
 
 import { Message } from 'src/@models/message.model';
 import { Product } from 'src/@models/product.model';
+import { User } from 'src/@models/user.model';
+
+const URL_JSON_LOCAL = "./././assets/db.json"
 
 const URL_MESSAGES = "http://localhost:8080/messages/"
+const URL_USER_LIST = "http://localhost:8080/users/";
+
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +44,6 @@ export class DatabaseService {
   }
 
   getProduct_All(): Observable<Product[]> {
-    const URL_JSON_LOCAL = "./././assets/db.json"
     return this.http.get<Product[]>(URL_JSON_LOCAL).pipe(
       catchError(this.handleError)
     )
@@ -49,6 +53,19 @@ export class DatabaseService {
     return this.http.post(URL_MESSAGES, data).pipe(
       catchError(this.handleError)
     );
+  }
+
+  getUser_All(): Observable<User[]> {
+    return this.http.get<User[]>(URL_USER_LIST).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  getUser_One(id: number): Observable<User[]> {
+    const URL_ONE_USER = `http://localhost:8080/users/search/${id}`;
+    return this.http.get<User[]>(URL_ONE_USER).pipe(
+      catchError(this.handleError)
+    )
   }
 
 }

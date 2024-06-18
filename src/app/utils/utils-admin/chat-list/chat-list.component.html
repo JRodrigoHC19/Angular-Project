@@ -1,5 +1,5 @@
 <ul>
   <li *ngFor="let user of users">
-    <button (click)="selectUserId(user)">User {{user}}</button>
+    <button (click)="selectUserId(user.id)">{{user.name}}</button>
   </li>
 </ul>

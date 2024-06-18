@@ -14,7 +14,7 @@ import { User } from 'src/@models/user.model';
 })
 export class ChatListComponent implements OnInit {
   @Output() suiEvent = new EventEmitter<number>();
-  users: number[] = [];
+  users: User[] = [];
 
 
   constructor(
@@ -26,11 +26,9 @@ export class ChatListComponent implements OnInit {
     if (this.isLoggedIn()) {
       this.loginService.UserRequest().subscribe({
         next: (data: User) => { if (data.is_admin) {
-          this.databaseService.getChat_All().subscribe({
-            next: (data: Message[]) => {
-              const ftrByType = data.filter(msg => !msg.type);
-              const ftrByUserId = ftrByType.map(msg => msg.user_id);
-              this.users = Array.from(new Set(ftrByUserId));
+          this.databaseService.getUser_All().subscribe({
+            next: (data1: User[]) => {
+              this.users = data1;
             }
           })
         }}
