@@ -1,3 +1,13 @@
-<!-- M A I N -->
 <h2>QR Code</h2>
+
+<div *ngIf="!doIhaveQR">
+  <form [formGroup]="form" (ngSubmit)="QRCodeRequest()">
+    <fieldset>
+      <label for="nameChanel">Codigo Secreto</label>
+      <input type="text" formControlName="nameChannel" id="nameChanel">
+    </fieldset>
+    <button type="submit">Generar QR</button>
+  </form>
+</div>
+
 <canvas id="canvas"></canvas>

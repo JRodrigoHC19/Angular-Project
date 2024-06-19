@@ -25,8 +25,9 @@
     <button (click)="backPage()">regresar</button>
     <form [formGroup]="form" (ngSubmit)="changePassword()">
       <fieldset>
+        <input type="text" name="username" autocomplete="username" [hidden]="true">
         <label for="pwd">Password</label>
-        <input type="password" formControlName="password" name="password" id="pwd">
+        <input type="password" formControlName="password" name="password" id="pwd" autocomplete="new-password">
 
         <!-- ERRORES -->
 
@@ -42,7 +43,7 @@
 
         <br>
         <label for="pwd2">Password Confirm</label>
-        <input type="password" formControlName="password2" name="password2" id="pwd2">
+        <input type="password" formControlName="password2" name="password2" id="pwd2" autocomplete="new-password">
 
         <!-- ERRORES -->
         <div *ngIf="form.controls.password2.invalid && (form.controls.password2.touched || form.controls.password2.dirty)">

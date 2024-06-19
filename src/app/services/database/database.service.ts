@@ -1,15 +1,16 @@
-import { Observable, catchError, tap, throwError } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Message } from 'src/@models/message.model';
 import { Product } from 'src/@models/product.model';
-import { User } from 'src/@models/user.model';
+import { User, User_Channel } from 'src/@models/user.model';
+
 
 const URL_JSON_LOCAL = "./././assets/db.json"
-
 const URL_MESSAGES = "http://localhost:8080/messages/"
 const URL_USER_LIST = "http://localhost:8080/users/";
+const URL_POST_CHANNEL ="http://localhost:8080/channels/";
 
 
 @Injectable({
@@ -65,6 +66,19 @@ export class DatabaseService {
   getUser_One(id: number): Observable<User[]> {
     const URL_ONE_USER = `http://localhost:8080/users/search/${id}`;
     return this.http.get<User[]>(URL_ONE_USER).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  getQRCode_One(id: number): Observable<User_Channel[]> {
+    const URL_GET_CHANNEL = `http://localhost:8080/channels/search/${id}`;
+    return this.http.get<User_Channel[]>(URL_GET_CHANNEL).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  postQRCode_One(data: User_Channel): Observable<User_Channel>{
+    return this.http.post<User_Channel>(URL_POST_CHANNEL, data).pipe(
       catchError(this.handleError)
     )
   }
