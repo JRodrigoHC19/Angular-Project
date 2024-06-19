@@ -1,4 +1,4 @@
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, tap, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -57,6 +57,7 @@ export class DatabaseService {
 
   getUser_All(): Observable<User[]> {
     return this.http.get<User[]>(URL_USER_LIST).pipe(
+      // tap(() => {}),
       catchError(this.handleError)
     )
   }

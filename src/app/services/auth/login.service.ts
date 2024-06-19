@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 
-import { Credentials, NewCredentials } from 'src/@models/credentials.model';
+import { Credentials, NewCredentials, NewPassword } from 'src/@models/credentials.model';
 import { LoginResponse } from 'src/@models/login_response.model';
 import { User } from 'src/@models/user.model';
 
@@ -13,7 +13,7 @@ import { User } from 'src/@models/user.model';
 const URL_LOGIN = "http://localhost:8000/api/user/login/";
 const URL_REGISTER = "http://localhost:8000/api/user/register/";
 const URL_PROFILE = "http://localhost:8000/api/user/profile/";
-
+const URL_CHANGE_PWD = "http://localhost:8000/api/user/changepassword/";
 
 @Injectable({
   providedIn: 'root'
@@ -63,6 +63,15 @@ export class LoginService {
       }),
       catchError(this.handleError)
     );
+  }
+
+  changePassword(credenciales: NewPassword): Observable<any> {
+    let idToken = this.cookies.get("IdToken");
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${idToken}`);
+    return this.http.post<any>(URL_CHANGE_PWD, credenciales, { headers }).pipe(
+      catchError(this.handleError)
+    )
   }
 
   UserRequest(): Observable<User> {

@@ -10,3 +10,8 @@ export interface NewCredentials {
   password2: string,
   tc: boolean
 }
+
+export interface NewPassword {
+  password: string,
+  password2: string
+}

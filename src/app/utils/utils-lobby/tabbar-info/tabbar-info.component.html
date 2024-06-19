@@ -1,21 +1,67 @@
 <div [hidden]="hiddenChilden[0]">
-  <div [hidden]="hiddenConfigInside">
+  <div [hidden]="hiddenConfigChilden[0]">
     <h2>Configuracion</h2>
-    <button (click)="enable_AboutMe()">Acerca de</button>
+    <button (click)="enable_Children([false, true, true])">Acerca de</button>
     <br>
-    <button (click)="enable_TC()">Terminos y Condiciones</button>
+    <button (click)="enable_Children([true, false, true])">Terminos y Condiciones</button>
+    <br>
+    <button (click)="enable_Children([true, true, false])">Cambiar Contrasena</button>
   </div>
 
   <!-- CONTAINER ~ ABOUT ME -->
-  <div [hidden]="hiddenAboutMe">
+  <div [hidden]="hiddenConfigChilden[1]">
     <button (click)="backPage()">regresar</button>
     <p>Acerca de ...</p>
   </div>
 
   <!-- CONTAINER ~ TC -->
-  <div [hidden]="hiddenTC">
+  <div [hidden]="hiddenConfigChilden[2]">
     <button (click)="backPage()">regresar</button>
     <p>Terminos y Condiciones ...</p>
+  </div>
+
+  <!-- CONTAINER ~ CHANNGE PASSWORD -->
+  <div [hidden]="hiddenConfigChilden[3]">
+    <button (click)="backPage()">regresar</button>
+    <form [formGroup]="form" (ngSubmit)="changePassword()">
+      <fieldset>
+        <label for="pwd">Password</label>
+        <input type="password" formControlName="password" name="password" id="pwd">
+
+        <!-- ERRORES -->
+
+        <div *ngIf="form.controls.password.invalid && (form.controls.password.touched || form.controls.password.dirty)">
+          <div *ngIf="form.controls.password.errors?.['required']">
+            <small>Password requerido</small>
+          </div>
+
+          <div *ngIf="form.controls.password.errors?.['minlength']">
+            <small>Password debe tener minino 8</small>
+          </div>
+        </div>
+
+        <br>
+        <label for="pwd2">Password Confirm</label>
+        <input type="password" formControlName="password2" name="password2" id="pwd2">
+
+        <!-- ERRORES -->
+        <div *ngIf="form.controls.password2.invalid && (form.controls.password2.touched || form.controls.password2.dirty)">
+          <div *ngIf="form.controls.password2.errors?.['required']">
+            <small>Password requerido</small>
+          </div>
+
+          <div *ngIf="form.controls.password2.errors?.['minlength']">
+            <small>Password debe tener minino 8</small>
+          </div>
+        </div>
+
+        <div *ngIf="formErrors.length != 0">
+          <small>{{formErrors}}</small>
+        </div>
+
+      </fieldset>
+      <button type="submit">Actualizar</button>
+    </form>
   </div>
 </div>
 

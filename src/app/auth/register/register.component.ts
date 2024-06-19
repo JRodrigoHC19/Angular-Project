@@ -1,20 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NewCredentials } from 'src/@models/credentials.model';
 import { LoginService } from 'src/app/services/auth/login.service';
-
-
-const passwordMatchValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
-  const password = control.get('password');
-  const password2 = control.get('password2');
-
-  if (password && password2 && password.value !== password2.value) {
-    return { passwordsDoNotMatch: true };
-  }
-  return null;
-};
-
 
 @Component({
   selector: 'app-register',
@@ -70,6 +58,7 @@ export class RegisterComponent {
           }
         });
     } else {
+      this.registerError = "Las contrasenas no son validas o no coinciden";
       this.RegisterForm.markAllAsTouched();
       alert("Credenciales no Validas.");
     }
