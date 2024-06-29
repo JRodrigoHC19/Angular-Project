@@ -25,3 +25,37 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+## URLs: 
+#### /app/services/auth/login.service.ts
+* URL_LOGIN
+  * http://localhost:8000/api/user/login/
+* URL_REGISTER
+  * http://localhost:8000/api/user/register/
+* URL_PROFILE
+  * http://localhost:8000/api/user/profile/
+* URL_CHANGE_PWD
+  * http://localhost:8000/api/user/changepassword/
+
+
+
+#### /app/services/database/database.service.ts
+* URL_MESSAGES
+  * http://localhost:8080/messages
+* URL_USER_LIST
+  * http://localhost:8080/users/
+* URL_POST_CHANNEL
+  * http://localhost:8080/channels/
+* URL_MSG_BY_ID   ~ line 41
+  * http://localhost:8080/messages/${id}
+* URL_ONE_USER    ~ line 67
+  * http://localhost:8080/users/search/${id}
+* URL_GET_CHANNEL ~ line 74
+  * http://localhost:8080/channels/search/${id}
+
+
+#### /app/service/websocket/chat.service.ts
+* URL_WEBSOCKET
+  * ws://localhost:8040
