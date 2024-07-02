@@ -10,10 +10,10 @@ import { LoginResponse } from 'src/@models/login_response.model';
 import { User } from 'src/@models/user.model';
 
 
-const URL_LOGIN = "http://localhost:8000/api/user/login/";
-const URL_REGISTER = "http://localhost:8000/api/user/register/";
-const URL_PROFILE = "http://localhost:8000/api/user/profile/";
-const URL_CHANGE_PWD = "http://localhost:8000/api/user/changepassword/";
+const URL_LOGIN = "http://64.176.3.20:8000/api/user/login/";
+const URL_REGISTER = "http://64.176.3.20:8000/api/user/register/";
+const URL_PROFILE = "http://64.176.3.20:8000/api/user/profile/";
+const URL_CHANGE_PWD = "http://64.176.3.20:8000/api/user/changepassword/";
 
 @Injectable({
   providedIn: 'root'

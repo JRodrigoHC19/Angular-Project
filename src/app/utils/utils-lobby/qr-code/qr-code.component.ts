@@ -28,23 +28,23 @@ export class QrCodeComponent implements AfterViewInit {
     private databaseService: DatabaseService
   ) { }
 
-  ngAfterViewInit(): void {
-    this.loginService.UserRequest().subscribe({
-      next: (data: User) => {
-        if (!data.is_admin) {
-          this.client_id = data.id;
-          this.databaseService.getQRCode_One(data.id).subscribe({
-            next: (channel) => {
-              if (channel[0] != undefined) {
-                this.generateQRCode(channel[0].nameChannel)
-                this.doIhaveQR = true;
+    ngAfterViewInit(): void {
+      this.loginService.UserRequest().subscribe({
+        next: (data: User) => {
+          if (!data.is_admin) {
+            this.client_id = data.id;
+            this.databaseService.getQRCode_One(data.id).subscribe({
+              next: (channel) => {
+                if (channel[0] != undefined) {
+                  this.generateQRCode(channel[0].nameChannel)
+                  this.doIhaveQR = true;
+                }
               }
-            }
-          });
+            });
+          }
         }
-      }
-    })
-  }
+      })
+    }
 
   async QRCodeRequest() {
     let name = this.form.controls.nameChannel.value;
