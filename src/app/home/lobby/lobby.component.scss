@@ -1,0 +1,211 @@
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #e6f7e6, #c1e6c1);
+}
+
+/* Estilos para el header personalizado */
+app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #c1e6c1;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 1.5rem;
+  z-index: 1000;
+}
+
+/* Estilos para la sección hero */
+.home-container {
+  padding-top: 60px;
+}
+
+.home-container h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: #1b5e20;
+  margin-bottom: 30px;
+  animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos para la sección about */
+.about-section {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 60px 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.about-section h2 {
+  color: #1b5e20;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #33691e;
+}
+
+/* Estilos para la sección de productos */
+.products-section {
+  background-color: rgba(200, 230, 201, 0.5);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.products-section h2 {
+  color: #1b5e20;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.product-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.product {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 300px;
+}
+
+.product:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.product img {
+  width: 100%;
+  height: 300px; /* Imagen más larga */
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product:hover img {
+  transform: scale(1.05);
+}
+
+.product h3 {
+  font-size: 1.5rem;
+  margin: 15px 0;
+  color: #2e7d32;
+}
+
+.product p {
+  padding: 0 15px 15px;
+  font-size: 1rem;
+  color: #33691e;
+}
+
+.product::before {
+  content: '\1F331';
+  font-size: 2rem;
+  display: block;
+  margin: 10px auto;
+}
+
+/* Estilos para la sección de equipo */
+.team-section {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.team-section h2 {
+  color: #1b5e20;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.team-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.team-member {
+  background-color: rgba(200, 230, 201, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  max-width: 250px;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 5px solid #4CAF50;
+}
+
+.team-member h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #1b5e20;
+}
+
+.social-links a {
+  color: #2e7d32;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #1b5e20;
+}
+
+/* Iconos para LinkedIn y GitHub */
+.social-links a[href*="linkedin.com"]::before {
+  content: '\f08c'; /* Código del ícono de LinkedIn en Font Awesome */
+  font-family: 'Font Awesome 5 Brands';
+}
+
+.social-links a[href*="github.com"]::before {
+  content: '\f09b'; /* Código del ícono de GitHub en Font Awesome */
+  font-family: 'Font Awesome 5 Brands';
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.social-links a:hover {
+  animation: bounce 0.5s ease infinite;
+}

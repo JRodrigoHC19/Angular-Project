@@ -1,5 +1,26 @@
-<img src="../../../../assets/img/plant.png" alt="perfil.png" width="30px">
-<button type="button" (click)="enableComponent('users')" [hidden]="!isAdmin">List</button>
-<button type="button" (click)="enableComponent('qrcode')" [hidden]="isAdmin">Codigo QR</button>
-<button type="button" (click)="enableComponent('config')" [hidden]="isAdmin">Configuracion</button>
-<button type="button" (click)="logOut()">LogOut</button>
+<div class="d-flex align-items-start flex-column mb-3" style="height: 100vh;">
+
+  <img src="../../../../assets/img/plant.png" alt="perfil.png" width="100%" [hidden]="!isAdmin">
+  <img src="https://cdn-icons-png.flaticon.com/512/4715/4715329.png" alt="perfil.png" width="100%" [hidden]="isAdmin">
+
+  <button type="button" class="btn mx-0" (click)="enableComponent('users')" [hidden]="!isAdmin">
+    <span class="material-symbols-outlined display-5">group</span>
+  </button>
+
+  <button type="button" class="btn text-white" (click)="enableComponent('qrcode')" [hidden]="isAdmin">
+    <span class="material-symbols-outlined display-5">qr_code</span>
+  </button>
+
+  <button type="button" class="btn text-white" (click)="enableComponent('config')" [hidden]="isAdmin">
+    <span class="material-symbols-outlined display-5">settings</span>
+  </button>
+
+
+  <div class="mt-auto">
+    <button type="button" class="btn text-white" (click)="logOut()">
+      <span class="material-symbols-outlined display-5">logout</span>
+    </button>
+  </div>
+
+</div>
+

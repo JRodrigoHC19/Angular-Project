@@ -1,6 +1,12 @@
-<h1>Welcome Products</h1>
-<ul>
-  <li *ngFor="let product of products">
-    <button (click)="selectProduct(product.id)">{{ product.title }}</button>
-  </li>
-</ul>
+<div class="productos-container">
+  <h1 class="productos-title">Producto Whispernature</h1>
+  <div class="productos-grid">
+    <div class="producto-card" *ngFor="let product of products">
+      <img src="{{product.imageUrl}}" alt="{{ product.title }}" class="producto-imagen">
+      <div class="producto-info">
+        <h2>{{ product.title }}</h2>
+        <button (click)="selectProduct(product.id)">View Details</button>
+      </div>
+    </div>
+  </div>
+</div>

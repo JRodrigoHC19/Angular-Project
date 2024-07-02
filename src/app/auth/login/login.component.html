@@ -1,13 +1,17 @@
-<form [formGroup]="loginForm" (ngSubmit)="loginPress()">
-  <p *ngIf="loginError != ''">{{loginError}}</p>
-  <fieldset>
-    <label for="email-login">Email</label>
-    <input formControlName="email" type="email" id="email-login" autocomplete="username">
-    
-    <label for="password-login">Password</label>
-    <input formControlName="password" type="password" id="password-login" autocomplete="current-password">
-  </fieldset>
+<div class="login-container">
 
-  <button type="submit">Login In</button>
-  <a routerLink="/register">Registrar</a>
-</form>
+  <form [formGroup]="loginForm" (ngSubmit)="loginPress()">
+    <div class="login-input-group">
+      <img src="assets/img/logo_whispernature_R.png" alt="Logo" class="logo">
+      <h1 class="login-title">Iniciar Sesión</h1>
+      <label for="email-login">Email</label>
+      <input formControlName="email" type="email" id="email-login">
+      <div class="login-input-group">
+        <label for="password-login">Contraseña</label>
+        <input formControlName="password" type="password" id="password-login">
+        <p class="login-no-account">¿No tienes una cuenta? <a routerLink="/register">Regístrate aquí</a></p>
+      </div>
+    </div>
+    <button type="submit" class="login-button">Iniciar Sesión</button>
+  </form>
+</div>

@@ -1,0 +1,88 @@
+.productos-container {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #e6f7e6, #c1e6c1);
+  text-align: center;
+}
+
+.productos-title {
+  font-size: 2.5rem;
+  color: #1b5e20;
+  margin-bottom: 40px;
+  animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.productos-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.producto-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300px;
+}
+
+.producto-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.producto-imagen {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.producto-card:hover .producto-imagen {
+  transform: scale(1.05);
+}
+
+.producto-info {
+  padding: 15px;
+}
+
+.producto-info h2 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  color: #2e7d32;
+}
+
+.producto-info button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.producto-info button:hover {
+  background-color: #45a049;
+}
+
+.producto-card::before {
+  content: '\1F331';
+  font-size: 2rem;
+  display: block;
+  margin: 10px auto;
+  color: #4CAF50;
+}

@@ -1,3 +1,15 @@
-<h3>Product Item</h3>
-<p>{{product?.title}}</p>
-<button (click)="backPage()">Regresar</button>
+<div class="product-item-container">
+  <button class="back-button" (click)="backPage()">← Regresar</button>
+
+  <div class="product-details" *ngIf="product">
+    <h1>{{ product.title }}</h1>
+    <img [src]="product.imageUrl" alt="{{ product.title }}" class="product-image">
+    <p class="product-description">{{ product.description }}</p>
+
+    <ul class="product-features">
+      <li *ngFor="let feature of product.features">{{ feature }}</li>
+    </ul>
+
+    <p class="product-price">{{ product.price | currency }}</p>
+  </div>
+</div>

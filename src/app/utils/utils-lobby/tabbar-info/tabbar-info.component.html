@@ -1,16 +1,26 @@
-<div [hidden]="hiddenChilden[0]">
+<div [hidden]="hiddenChilden[0]" class="text-white">
   <div [hidden]="hiddenConfigChilden[0]">
-    <h2>Configuracion</h2>
-    <button (click)="enable_Children([false, true, true])">Acerca de</button>
-    <br>
-    <button (click)="enable_Children([true, false, true])">Terminos y Condiciones</button>
-    <br>
-    <button (click)="enable_Children([true, true, false])">Cambiar Contrasena</button>
+    <div class="d-flex align-items-start flex-column" style="height: 100vh;" >
+      <p class="display-5 fw-bolder">Configuracion</p>
+      <br>
+      <button class="btn btn-dark fs-4" (click)="enable_Children([false, true, true])">Acerca de</button>
+      <br>
+      <button class="btn btn-dark fs-4" (click)="enable_Children([true, false, true])">Terminos y Condiciones</button>
+      <br>
+      <button class="btn btn-dark fs-4" (click)="enable_Children([true, true, false])">Cambiar Contrasena</button>
+
+      <div class="mt-auto">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/022/643/346/small_2x/green-fresh-leaves-potted-plant-png.png" width="80%" alt="">
+      </div>
+    </div>
   </div>
 
   <!-- CONTAINER ~ ABOUT ME -->
   <div [hidden]="hiddenConfigChilden[1]">
-    <button (click)="backPage()">regresar</button>
+    <button class="btn btn-dark fs-6" (click)="backPage()">
+      <span class="material-symbols-outlined">arrow_back_ios</span>
+      <span class="mb-5 py-auto">Back</span>
+    </button>
     <p>Acerca de ...</p>
   </div>
 

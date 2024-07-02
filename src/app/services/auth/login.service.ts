@@ -10,17 +10,15 @@ import { LoginResponse } from 'src/@models/login_response.model';
 import { User } from 'src/@models/user.model';
 
 
-const URL_LOGIN = "http://64.176.3.20:8000/api/user/login/";
-const URL_REGISTER = "http://64.176.3.20:8000/api/user/register/";
-const URL_PROFILE = "http://64.176.3.20:8000/api/user/profile/";
-const URL_CHANGE_PWD = "http://64.176.3.20:8000/api/user/changepassword/";
+const URL_LOGIN = "http://64.176.2.120:8000/api/user/login/";
+const URL_REGISTER = "http://64.176.2.120:8000/api/user/register/";
+const URL_PROFILE = "http://64.176.2.120:8000/api/user/profile/";
+const URL_CHANGE_PWD = "http://64.176.2.120:8000/api/user/changepassword/";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  // currentUserData: BehaviorSubject<User> = new BehaviorSubject<User>(UserVoid);
-  // currentIdToken: BehaviorSubject<string> = new BehaviorSubject<string>("");
   constructor(
     private http: HttpClient,
     private cookies: CookieService,

@@ -1,17 +1,22 @@
-<div *ngIf="isLoggedIn()" style="display: flex; height: 70vh;">
-  <div style="width: 7%; background-color:aquamarine;">
-    <app-tabbar (nameComponent)="enableComponent($event)"></app-tabbar>
-  </div>
+<div class="container-fluid text-white">
+  <div *ngIf="isLoggedIn()" class="row">
+    <div class="col-1">
+      <div class="row">
+        <app-tabbar (nameComponent)="enableComponent($event)" class="col-9 bg-success" style="height: 100vh;"></app-tabbar>
+        <div class="col-3" style="background-color: #1f1f1f;"></div>
+      </div>
+    </div>
 
-  <div  style="width: 38%; background-color: gray;">
-    <app-tabbar-info [hiddenChilden]="hiddenComponent" (suiEvent)="showUserChat($event)"></app-tabbar-info>
-  </div>
+    <div class="col-3" style="background-color: #1f1f1f;">
+      <app-tabbar-info [hiddenChilden]="hiddenComponent" (suiEvent)="showUserChat($event)"></app-tabbar-info>
+    </div>
 
-  <div style="width: 65%; border-top: solid black 1px;">
-    <div [hidden]="IamAdmin">
-      <app-navbar-chat [user]="client"></app-navbar-chat>
-      <hr>
-      <app-private-chat [chat]="chat" [UserId]="client.id"></app-private-chat>
+    <div class="col-8" style="height: 100vh; background-color: #212529;">
+      <div [hidden]="IamAdmin">
+        <app-navbar-chat [user]="client"></app-navbar-chat>
+        <hr>
+        <app-private-chat [chat]="chat" [UserId]="client.id"></app-private-chat>
+      </div>
     </div>
   </div>
 </div>
