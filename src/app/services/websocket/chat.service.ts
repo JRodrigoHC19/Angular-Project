@@ -2,6 +2,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { Message } from 'src/@models/message.model';
 
+
 const URL_WEBSOCKET: string = 'ws://64.176.2.120:8040';
 
 @Injectable({

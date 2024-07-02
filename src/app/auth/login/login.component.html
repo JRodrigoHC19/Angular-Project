@@ -1,6 +1,7 @@
 <div class="login-container">
 
   <form [formGroup]="loginForm" (ngSubmit)="loginPress()">
+    <p *ngIf="loginError != ''" class="error">{{loginError}}</p>
     <div class="login-input-group">
       <img src="assets/img/logo_whispernature_R.png" alt="Logo" class="logo">
       <h1 class="login-title">Iniciar Sesión</h1>

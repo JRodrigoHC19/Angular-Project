@@ -1,6 +1,7 @@
 <app-header></app-header>
+<div >
 
-<app-product-list
+  <app-product-list
   *ngIf="hiddenPage"
   (spEvent)="selectProduct($event)"
   [products]="products"
@@ -12,4 +13,4 @@
   [product]="product"
 ></app-product-item>
 
-<app-footer></app-footer>
+</div>

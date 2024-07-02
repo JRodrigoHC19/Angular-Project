@@ -1,26 +1,27 @@
 [
   {
     "id": 0,
-    "title": "Laptop ASUS",
-    "description": "Dispositivo Inteligente ultra potente.",
-    "features": ["Placa Moderna", "Tarjeta de Video 2024", "Ram 16GB"],
+    "title": "Planta Monstera",
+    "description": "Planta tropical con hojas grandes y perforadas.",
+    "features": ["Crece en interiores", "Hojas verdes grandes", "Requiere poca luz"],
     "price": 24.99,
     "imageUrl": "assets/img/planta1.png"
   },
   {
     "id": 1,
-    "title": "Laptop Lenovo",
-    "description": "Dispositivo Inteligente poco veloz.",
-    "features": ["Placa Moderna", "Tarjeta de Video 2023", "Ram 32GB"],
+    "title": "Planta Suculenta",
+    "description": "Planta resistente que almacena agua en sus hojas.",
+    "features": ["Bajo mantenimiento", "Resistente a la sequía", "Ideal para interiores"],
     "price": 45.99,
     "imageUrl": "assets/img/planta2.png"
   },
   {
     "id": 2,
-    "title": "Laptop HP",
-    "description": "Dispositivo Inteligente bastante portable.",
-    "features": ["Placa Antigua", "Tarjeta de Video 2020", "Ram 8GB"],
+    "title": "Planta Bonsái",
+    "description": "Árbol en miniatura que requiere cuidado y atención.",
+    "features": ["Arte japonés", "Forma ornamental", "Requiere poda regular"],
     "price": 55.99,
     "imageUrl": "assets/img/planta3.png"
   }
 ]
+

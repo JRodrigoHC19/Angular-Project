@@ -21,58 +21,80 @@
       <span class="material-symbols-outlined">arrow_back_ios</span>
       <span class="mb-5 py-auto">Back</span>
     </button>
-    <p>Acerca de ...</p>
+    <h3>Acerca de Whisper Nature</h3>
+    <p>Nuestra plataforma web, desarrollada con Angular, ofrece un servicio integral al cliente, permitiendo a los usuarios visualizar productos, generar códigos QR y acceder a un chat en tiempo real para recibir atención personalizada. Utilizamos tecnologías avanzadas, incluyendo qrcode@1.5.3, @types/qrcode@1.5.5, ngx-cookie-service@18.0.0 y ngx-socket-io@4.7.0, para asegurar una experiencia eficiente y segura. Los datos se gestionan mediante APIs REST conectadas a bases de datos relacionales y no relacionales, garantizando la protección y correcta gestión de la información del usuario.
+    </p>
   </div>
 
   <!-- CONTAINER ~ TC -->
   <div [hidden]="hiddenConfigChilden[2]">
-    <button (click)="backPage()">regresar</button>
-    <p>Terminos y Condiciones ...</p>
+    <button class="btn btn-dark fs-6" (click)="backPage()">
+      <span class="material-symbols-outlined">arrow_back_ios</span>
+      <span class="mb-5 py-auto">Back</span>
+    </button>
+    <h3>Terminos y Condiciones</h3>
+    <p>Al utilizar nuestra plataforma web desarrollada con Angular, usted acepta los siguientes términos y condiciones. Para utilizar ciertos servicios, como la visualización de productos, la generación de códigos QR, y el chat en tiempo real, los usuarios deben crear una cuenta y proporcionar datos personales, que serán utilizados para autenticar y personalizar su experiencia. La plataforma utiliza varias librerías y tecnologías, incluyendo qrcode@1.5.3 para la generación de códigos QR, @types/qrcode@1.5.5 para compatibilidad con TypeScript, ngx-cookie-service@18.0.0 para la gestión de cookies que almacenan tokens de usuario, y ngx-socket-io@4.7.0 para la conexión a APIs REST basadas en websockets. Los datos personales y de las plantas se gestionan a través de APIs REST conectadas a bases de datos relacionales y no relacionales, asegurando su protección con diversas medidas de seguridad. El usuario es responsable de mantener la confidencialidad de sus credenciales y de cualquier actividad que ocurra bajo su cuenta, debiendo notificar cualquier uso no autorizado a nuestro equipo de soporte inmediatamente.
+
+
+
+
+
+
+
+</p>
   </div>
 
   <!-- CONTAINER ~ CHANNGE PASSWORD -->
   <div [hidden]="hiddenConfigChilden[3]">
-    <button (click)="backPage()">regresar</button>
-    <form [formGroup]="form" (ngSubmit)="changePassword()">
+    <button class="btn btn-dark fs-6" (click)="backPage()">
+      <span class="material-symbols-outlined">arrow_back_ios</span>
+      <span class="mb-5 py-auto">Back</span>
+    </button>
+
+    <form [formGroup]="form" (ngSubmit)="changePassword()" class="container mt-4">
       <fieldset>
         <input type="text" name="username" autocomplete="username" [hidden]="true">
-        <label for="pwd">Password</label>
-        <input type="password" formControlName="password" name="password" id="pwd" autocomplete="new-password">
 
-        <!-- ERRORES -->
+        <div class="mb-3">
+          <label for="pwd" class="form-label">Password</label>
+          <input type="password" formControlName="password" name="password" id="pwd" autocomplete="new-password" class="form-control">
 
-        <div *ngIf="form.controls.password.invalid && (form.controls.password.touched || form.controls.password.dirty)">
-          <div *ngIf="form.controls.password.errors?.['required']">
-            <small>Password requerido</small>
-          </div>
+          <!-- ERRORES -->
+          <div *ngIf="form.controls.password.invalid && (form.controls.password.touched || form.controls.password.dirty)" class="form-text text-danger">
+            <div *ngIf="form.controls.password.errors?.['required']">
+              <small>Password requerido</small>
+            </div>
 
-          <div *ngIf="form.controls.password.errors?.['minlength']">
-            <small>Password debe tener minino 8</small>
-          </div>
-        </div>
-
-        <br>
-        <label for="pwd2">Password Confirm</label>
-        <input type="password" formControlName="password2" name="password2" id="pwd2" autocomplete="new-password">
-
-        <!-- ERRORES -->
-        <div *ngIf="form.controls.password2.invalid && (form.controls.password2.touched || form.controls.password2.dirty)">
-          <div *ngIf="form.controls.password2.errors?.['required']">
-            <small>Password requerido</small>
-          </div>
-
-          <div *ngIf="form.controls.password2.errors?.['minlength']">
-            <small>Password debe tener minino 8</small>
+            <div *ngIf="form.controls.password.errors?.['minlength']">
+              <small>Password debe tener mínimo 8 caracteres</small>
+            </div>
           </div>
         </div>
 
-        <div *ngIf="formErrors.length != 0">
+        <div class="mb-3">
+          <label for="pwd2" class="form-label">Confirmar Password</label>
+          <input type="password" formControlName="password2" name="password2" id="pwd2" autocomplete="new-password" class="form-control">
+
+          <!-- ERRORES -->
+          <div *ngIf="form.controls.password2.invalid && (form.controls.password2.touched || form.controls.password2.dirty)" class="form-text text-danger">
+            <div *ngIf="form.controls.password2.errors?.['required']">
+              <small>Password requerido</small>
+            </div>
+
+            <div *ngIf="form.controls.password2.errors?.['minlength']">
+              <small>Password debe tener mínimo 8 caracteres</small>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="formErrors.length != 0" class="form-text text-danger">
           <small>{{formErrors}}</small>
         </div>
 
       </fieldset>
-      <button type="submit">Actualizar</button>
+      <button type="submit" class="btn btn-primary">Actualizar</button>
     </form>
+
   </div>
 </div>
 

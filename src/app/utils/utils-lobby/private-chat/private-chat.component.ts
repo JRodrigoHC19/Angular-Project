@@ -74,8 +74,10 @@ export class PrivateChatComponent implements OnInit {
         }
       });
 
-      this.chatService.emitEvent(msg);
-      this.chat?.push(msg);
+      if (this.reply.trim() != "") {
+        this.chatService.emitEvent(msg);
+        this.chat?.push(msg);
+      }
     }
 
     this.reply = "";
